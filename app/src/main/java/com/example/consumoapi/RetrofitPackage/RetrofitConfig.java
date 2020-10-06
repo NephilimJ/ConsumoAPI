@@ -18,4 +18,8 @@ public class RetrofitConfig {
     public TesteService getTesteService() {
         return this.retrofit.create(TesteService.class);
     }
+
+    public PostService getPOST() {
+        return this.retrofit.create(PostService.class);
+    }
 }

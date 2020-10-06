@@ -3,8 +3,10 @@ package com.example.consumoapi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -48,7 +50,6 @@ public class RetrofitTela extends AppCompatActivity {
     }
 
     private void callRetrofit() {
-        refreshListView.setRefreshing(true);
         Call<List<City>> call = new RetrofitConfig().getTesteService().buscarCity("list2");
         call.enqueue(new Callback<List<City>>() {
 
@@ -64,10 +65,13 @@ public class RetrofitTela extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<City>> call, Throwable t) {
                 Toast.makeText(RetrofitTela.this, "Erro ao Conectar com o Servidor", Toast.LENGTH_LONG).show();
-                Log.e("[HTTP Fetch]",t.getMessage());
-                refreshListView.setRefreshing(false);
             }
         });
 
+    }
+
+    public void iniciarCadastroRetrofit(View view){
+        Intent intent = new Intent(RetrofitTela.this, retrofit_adicionar_cidade.class);
+        startActivity(intent);
     }
 }
