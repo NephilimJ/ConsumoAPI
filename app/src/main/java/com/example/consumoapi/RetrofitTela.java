@@ -50,19 +50,21 @@ public class RetrofitTela extends AppCompatActivity {
     private void callRetrofit() {
         Call<List<City>> call = new RetrofitConfig().getTesteService().buscarCity("list2");
         call.enqueue(new Callback<List<City>>() {
-            @Override
+
+
+
             public void onResponse(Call<List<City>> call, Response<List<City>> response) {
                 List<City> teste = response.body();
                 ListViewAdapter listViewAdapter = new ListViewAdapter(RetrofitTela.this, teste);
                 listView.setAdapter(listViewAdapter);
+                refreshListView.setRefreshing(false);
             }
 
             @Override
             public void onFailure(Call<List<City>> call, Throwable t) {
-                Toast.makeText(RetrofitTela.this, "Erro ao Conectar com o Servidor", Toast.LENGTH_LONG);
+                Toast.makeText(RetrofitTela.this, "Erro ao Conectar com o Servidor", Toast.LENGTH_LONG).show();
             }
         });
 
-        refreshListView.setRefreshing(false);
     }
 }
