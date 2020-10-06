@@ -4,18 +4,22 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+
+import com.example.consumoapi.R;
+
 import java.util.List;
 
-public class ListViewAdapter {
+public class ListViewAdapter extends BaseAdapter {
     Context context;
-    List<PedidoClass> lista;
+    List<City> lista;
 
     private LayoutInflater inflater = null;
 
-    public AdapterListAtividades(Context context, List<PedidoClass> lista) {
+    public ListViewAdapter(Context context, List<City> lista) {
         // TODO Auto-generated constructor stub
         this.context = context;
         this.lista = lista;
@@ -30,7 +34,7 @@ public class ListViewAdapter {
     }
 
     @Override
-    public PedidoClass getItem(int position) {
+    public City getItem(int position) {
         // TODO Auto-generated method stub
         return lista.get(position);
     }
@@ -46,45 +50,11 @@ public class ListViewAdapter {
         // TODO Auto-generated method stub
         View vi = convertView;
         if (vi == null)
-            vi = inflater.inflate(R.layout.activities_cell, null);
+            vi = inflater.inflate(R.layout.activity_retrofit, null);
 
-        PedidoClass pedido = lista.get(position);
+        City pedido = lista.get(position);
 
-        TextView txtAssunto = (TextView) vi.findViewById(R.id.txtAssunto);
-        txtAssunto.setText(new Function().cropText(pedido.getAssunto(), 30));
 
-        TextView txtData = (TextView) vi.findViewById(R.id.txtData);
-        txtData.setText(new Function().dataFormatterDB(pedido.getDataHora(), 1));
-
-        TextView txtPrioridade = (TextView) vi.findViewById(R.id.txtPrioridade);
-        String prioridadeStr = new FuncActivities().getPriorityStr(pedido.getPrioridade(), context);
-        txtPrioridade.setText(prioridadeStr);
-        txtPrioridade.setTextColor(new Function().getPriorityColor(pedido.getPrioridade()));
-
-        TextView txtAutor = (TextView) vi.findViewById(R.id.txtAutor);
-        txtAutor.setText(pedido.getUsuario_nome());
-
-        TextView txtResponsavel = (TextView) vi.findViewById(R.id.txtResponsavel);
-        if (!pedido.getTi_nome().equals("")) {
-            txtResponsavel.setText(pedido.getTi_nome());
-            txtResponsavel.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-        } else {
-            txtResponsavel.setText(" " + context.getString(R.string.txtNotAssigned));
-            txtResponsavel.setCompoundDrawablesWithIntrinsicBounds(android.R.drawable.presence_away, 0, 0, 0);
-        }
-
-        LinearLayout lnlPriority = (LinearLayout) vi.findViewById(R.id.lnlPriority);
-        lnlPriority.setBackgroundColor(new Function().getPriorityColor(pedido.getPrioridade()));
-
-        TextView txtTipoAtividade = (TextView) vi.findViewById(R.id.txtTipoAtividade);
-        txtTipoAtividade.setText(new FuncActivities().getTipoSuporteStr(pedido.getTipo(), context));
-
-        TextView txtDeadline = (TextView) vi.findViewById(R.id.txtDeadline);
-        txtDeadline.setText(new Function().dataFormatterDB(pedido.getDataFinal(), 2));
-
-        RoundedCornerImageView imgFotoResponsavel = (RoundedCornerImageView) vi.findViewById(R.id.imgFotoResponsavel);
-        imgFotoResponsavel.setImageResource(new Function().getActivityStatusImage(pedido.getStatus()));
-        imgFotoResponsavel.setRoundedCornerColor(new Function().getPriorityColor(pedido.getPrioridade()));
 
         return vi;
     }
