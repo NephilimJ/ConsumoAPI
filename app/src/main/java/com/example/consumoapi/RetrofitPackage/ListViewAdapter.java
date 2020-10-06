@@ -55,7 +55,7 @@ public class ListViewAdapter extends BaseAdapter {
         City city = lista.get(position);
 
         TextView txNomeCidade = vi.findViewById(R.id.nomeCidade);
-        txNomeCidade.setText(city.getName());
+        txNomeCidade.setText(city.getName()+", "+city.getState().getLongName()+" - "+city.getState().getShortName()+", "+city.getState().getCountry().getName());
 
         return vi;
     }
