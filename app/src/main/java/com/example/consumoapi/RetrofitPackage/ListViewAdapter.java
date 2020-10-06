@@ -54,6 +54,7 @@ public class ListViewAdapter extends BaseAdapter {
 
         City pedido = lista.get(position);
 
+        TextView txNomeCidade = vi.findViewById(R.id.nomeCidade);
 
 
         return vi;
