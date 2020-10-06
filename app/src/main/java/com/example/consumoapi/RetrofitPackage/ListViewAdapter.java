@@ -1,13 +1,13 @@
 package com.example.consumoapi.RetrofitPackage;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 
 import com.example.consumoapi.R;
 
@@ -50,12 +50,12 @@ public class ListViewAdapter extends BaseAdapter {
         // TODO Auto-generated method stub
         View vi = convertView;
         if (vi == null)
-            vi = inflater.inflate(R.layout.activity_retrofit, null);
+            vi = inflater.inflate(R.layout.retrofit_list_cell, null);
 
-        City pedido = lista.get(position);
+        City city = lista.get(position);
 
         TextView txNomeCidade = vi.findViewById(R.id.nomeCidade);
-
+        txNomeCidade.setText(city.getName());
 
         return vi;
     }
