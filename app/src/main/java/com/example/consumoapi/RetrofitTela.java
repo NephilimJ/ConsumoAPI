@@ -48,6 +48,7 @@ public class RetrofitTela extends AppCompatActivity {
     }
 
     private void callRetrofit() {
+        refreshListView.setRefreshing(true);
         Call<List<City>> call = new RetrofitConfig().getTesteService().buscarCity("list2");
         call.enqueue(new Callback<List<City>>() {
 
@@ -63,6 +64,8 @@ public class RetrofitTela extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<City>> call, Throwable t) {
                 Toast.makeText(RetrofitTela.this, "Erro ao Conectar com o Servidor", Toast.LENGTH_LONG).show();
+                Log.e("[HTTP Fetch]",t.getMessage());
+                refreshListView.setRefreshing(false);
             }
         });
 
