@@ -62,5 +62,7 @@ public class RetrofitTela extends AppCompatActivity {
                 Toast.makeText(RetrofitTela.this, "Erro ao Conectar com o Servidor", Toast.LENGTH_LONG);
             }
         });
+
+        refreshListView.setRefreshing(false);
     }
 }
