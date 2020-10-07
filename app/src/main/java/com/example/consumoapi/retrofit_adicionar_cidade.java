@@ -2,10 +2,12 @@ package com.example.consumoapi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.consumoapi.RetrofitPackage.Country;
 import com.example.consumoapi.RetrofitPackage.City;
@@ -59,17 +61,25 @@ public class retrofit_adicionar_cidade extends AppCompatActivity {
     }
 
     private void callRetrofit(City city){
+        final ProgressDialog loading = new ProgressDialog(retrofit_adicionar_cidade.this, ProgressDialog.THEME_HOLO_DARK);
+        loading.setMessage("Enviando Dados");
+        loading.setTitle("Carregando");
+        loading.setCancelable(false);
+        loading.show();
 
         Call<City> call = new RetrofitConfig().getPOST().createCity(city);
         call.enqueue(new Callback<City>() {
             @Override
             public void onResponse(Call<City> call, Response<City> response) {
                 Log.e("Teste", "sucesso");
+                loading.dismiss();
+                finish();
             }
 
             @Override
             public void onFailure(Call<City> call, Throwable t) {
-                Log.e("Teste", "falha, "+t.getMessage());
+                loading.dismiss();
+                Toast.makeText(retrofit_adicionar_cidade.this, "Erro ao Conectar com o Servidor", Toast.LENGTH_LONG).show();
             }
         });
     }

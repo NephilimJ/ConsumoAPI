@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 
 import com.example.consumoapi.RetrofitPackage.City;
@@ -105,4 +107,8 @@ public class asynctask extends AppCompatActivity {
         return new Gson().fromJson(jsonString, type);
     }
 
+    public void iniciarCadastroASYNC(View view){
+        Intent intent = new Intent(asynctask.this, ASyncTaskAdicionarCidade.class);
+        startActivity(intent);
+    }
 }

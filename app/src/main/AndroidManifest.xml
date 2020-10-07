@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".asynctask"></activity>
+        <activity android:name=".ASyncTaskAdicionarCidade"></activity>
+        <activity android:name=".asynctask" />
         <activity android:name=".retrofit_adicionar_cidade" />
         <activity android:name=".RetrofitTela" />
         <activity android:name=".MainActivity">
