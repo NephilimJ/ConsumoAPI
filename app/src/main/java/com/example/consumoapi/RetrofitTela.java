@@ -5,7 +5,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -13,9 +12,6 @@ import android.widget.Toast;
 import com.example.consumoapi.RetrofitPackage.ListViewAdapter;
 import com.example.consumoapi.RetrofitPackage.RetrofitConfig;
 import com.example.consumoapi.RetrofitPackage.City;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.List;
 
@@ -50,7 +46,7 @@ public class RetrofitTela extends AppCompatActivity {
     }
 
     private void callRetrofit() {
-        Call<List<City>> call = new RetrofitConfig().getTesteService().buscarCity("list2");
+        Call<List<City>> call = new RetrofitConfig().getGetService().buscarCity("list2");
         call.enqueue(new Callback<List<City>>() {
 
 

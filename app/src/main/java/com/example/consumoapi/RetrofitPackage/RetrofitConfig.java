@@ -1,7 +1,5 @@
 package com.example.consumoapi.RetrofitPackage;
 
-import com.example.consumoapi.RetrofitTela;
-
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
@@ -15,11 +13,11 @@ public class RetrofitConfig {
                 .build();
     }
 
-    public TesteService getTesteService() {
-        return this.retrofit.create(TesteService.class);
+    public GetService getGetService() {
+        return this.retrofit.create(GetService.class);
     }
 
-    public PostService getPOST() {
+    public PostService getPostService() {
         return this.retrofit.create(PostService.class);
     }
 }
