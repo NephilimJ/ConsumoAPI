@@ -6,12 +6,10 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.consumoapi.RetrofitPackage.Country;
 import com.example.consumoapi.RetrofitPackage.City;
-import com.example.consumoapi.RetrofitPackage.PostService;
 import com.example.consumoapi.RetrofitPackage.RetrofitConfig;
 import com.example.consumoapi.RetrofitPackage.State;
 import com.google.android.material.textfield.TextInputEditText;
@@ -67,7 +65,7 @@ public class retrofit_adicionar_cidade extends AppCompatActivity {
         loading.setCancelable(false);
         loading.show();
 
-        Call<City> call = new RetrofitConfig().getPOST().createCity(city);
+        Call<City> call = new RetrofitConfig().getPostService().createCity(city);
         call.enqueue(new Callback<City>() {
             @Override
             public void onResponse(Call<City> call, Response<City> response) {
