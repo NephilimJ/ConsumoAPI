@@ -12,6 +12,7 @@ import com.example.consumoapi.RetrofitPackage.City;
 import com.example.consumoapi.RetrofitPackage.PostService;
 import com.example.consumoapi.RetrofitPackage.RetrofitConfig;
 import com.example.consumoapi.RetrofitPackage.State;
+import com.google.android.material.textfield.TextInputEditText;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,7 +20,7 @@ import retrofit2.Response;
 
 public class retrofit_adicionar_cidade extends AppCompatActivity {
 
-    EditText edtPais, edtEstado, edtEstadoABV, edtCidade;
+    TextInputEditText edtPais, edtEstado, edtEstadoABV, edtCidade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
