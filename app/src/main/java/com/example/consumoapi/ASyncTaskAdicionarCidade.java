@@ -87,7 +87,7 @@ public class ASyncTaskAdicionarCidade extends AppCompatActivity {
         protected String doInBackground(String... parms) {
             StringBuffer chaine = new StringBuffer("");
             try {
-                URL url = new URL("http://icityapp.hopto.org:8101/ws/city/name");
+                URL url = new URL("LINK DA API");
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Content-Type", "application/json");

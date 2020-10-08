@@ -8,7 +8,7 @@ public class RetrofitConfig {
 
     public RetrofitConfig() {
         this.retrofit = new Retrofit.Builder()
-                .baseUrl("http://icityapp.hopto.org:8101/ws/")
+                .baseUrl("LINK DA API")
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
     }

@@ -71,7 +71,7 @@ public class asynctask extends AppCompatActivity {
         protected String doInBackground(String... parms) {
             StringBuffer chaine = new StringBuffer("");
             try {
-                URL url = new URL("http://icityapp.hopto.org:8101/ws/city/list2");
+                URL url = new URL("LINK DA API");
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.setDoInput(true);
