@@ -1,7 +1,5 @@
 package com.example.consumoapi.RetrofitPackage;
 
-import com.example.consumoapi.RetrofitTela;
-
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
@@ -10,12 +8,16 @@ public class RetrofitConfig {
 
     public RetrofitConfig() {
         this.retrofit = new Retrofit.Builder()
-                .baseUrl("http://icityapp.hopto.org:8101/ws/")
+                .baseUrl("LINK DA API")
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
     }
 
-    public TesteService getTesteService() {
-        return this.retrofit.create(TesteService.class);
+    public GetService getGetService() {
+        return this.retrofit.create(GetService.class);
+    }
+
+    public PostService getPostService() {
+        return this.retrofit.create(PostService.class);
     }
 }

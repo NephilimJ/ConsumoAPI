@@ -6,16 +6,16 @@
     android:layout_height="match_parent"
     android:baselineAligned="false"
     android:orientation="vertical"
-    tools:context=".RetrofitTela">
+    tools:context=".asynctask">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/refresherDashboard"
+        android:id="@+id/refresherListASYNC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="10">
 
         <ListView
-            android:id="@+id/lista"
+            android:id="@+id/listaASYNC"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="10" />
@@ -23,10 +23,10 @@
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnAddASYN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:onClick="iniciarCadastroRetrofit"
+        android:onClick="iniciarCadastroASYNC"
         android:text="Adicionar Cidade" />
 </LinearLayout>

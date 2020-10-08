@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void iniciarVolley(View view){
-        Intent intent = new Intent(MainActivity.this, VolleyTela.class);
+    public void iniciarAsynctask(View view){
+        Intent intent = new Intent(MainActivity.this, asynctask.class);
         startActivity(intent);
     }
 }
